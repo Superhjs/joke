@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loading...</title>
+</head>
+<body style="
+  margin:0;
+  background:#0078D7;
+  color:white;
+  width:100vw;
+  height:100vh;
+  font-family:'Segoe UI', sans-serif;
+  padding:40px;
+">
+
+<h1 style="font-size:80px;">:(</h1>
+<h2>Your PC ran into a problem and needs to restart.</h2>
+<p>We're just collecting some error info, and then we'll restart for you.</p>
+
+<p id="percent" style="margin-top:40px;">0% complete</p>
+
+<p style="margin-top:60px; font-size:14px;">
+  Error Code: CRITICAL_PROCESS_DIED<br>
+  What failed: system32.exe
+</p>
+
+<script>
+let percent = 0;
+
+let interval = setInterval(() => {
+  percent++;
+  document.getElementById("percent").innerText = percent + "% complete";
+
+  if (percent >= 100) {
+    clearInterval(interval);
+    setTimeout(() => {
+      document.body.innerHTML = `
+        <div style="text-align:center; margin-top:100px; font-family:Arial;">
+          <h1>😂 Got you!</h1>
+          <p>Happy April Fools!</p>
+        </div>
+      `;
+    }, 1000);
+  }
+}, 50);
+</script>
+
+</body>
+</html>
